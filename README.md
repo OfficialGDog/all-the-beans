@@ -19,3 +19,6 @@ A React + TypeScript app (work-in-progress) using Carbon components to showcase 
 ```bash
 npm install
 npm run dev
+
+Sources
+- Coffee icon: https://ar.inspiredpencil.com/pictures-2023/cup-of-coffee-icon-png

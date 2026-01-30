@@ -1,3 +1,8 @@
+export type CoffeeProps = {
+  beans: CoffeeBeanApi[];
+  onSelect: (bean: CoffeeBeanApi) => void;
+};
+
 export interface CoffeeBeanApi {
   _id: string;
   index: number,
