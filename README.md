@@ -13,7 +13,7 @@ A React + TypeScript app (work-in-progress) using Carbon components to showcase 
 - React + TypeScript
 - Vite
 - IBM Carbon Components
-- Jest for unit testing
+- Vitest for unit testing
 
 ## Getting Started
 ```bash
