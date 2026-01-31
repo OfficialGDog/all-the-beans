@@ -4,9 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@carbon/react";
 import BeanDetail from "../../components/BeanDetail/BeanDetail";
 import { BEANS } from "../../data/beans";
+import type { CoffeeBeanApi } from "../../types/coffeeBean";
 import styles from "./DetailPage.module.scss";
 
-function DetailPage() {
+type DetailPageProps = {
+  onAddToOrder: (bean: CoffeeBeanApi) => void;
+};
+
+function DetailPage({ onAddToOrder }: DetailPageProps) {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const bean = BEANS.find((b) => b._id === id);
@@ -14,7 +19,7 @@ function DetailPage() {
 
   return (
     <main className={styles.container}>
-      {bean ? (<BeanDetail bean={bean} />) : (
+      {bean ? (<BeanDetail bean={bean} onAddToOrder={onAddToOrder}/>) : (
         <p>This product isn't available anymore</p> )}
       <br />
       <Button kind="primary" onClick={() => navigate("/")}>

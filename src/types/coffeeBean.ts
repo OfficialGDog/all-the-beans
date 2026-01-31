@@ -1,6 +1,11 @@
-export type CoffeeProps = {
+export type BeanListProps = {
   beans: CoffeeBeanApi[];
-  onSelect?: (bean: CoffeeBeanApi) => void;
+  onAddToOrder: (bean: CoffeeBeanApi) => void;
+};
+
+export type BeanDetailProps = {
+  bean: CoffeeBeanApi;
+  onAddToOrder: (bean: CoffeeBeanApi) => void;
 };
 
 export interface CoffeeBeanApi {

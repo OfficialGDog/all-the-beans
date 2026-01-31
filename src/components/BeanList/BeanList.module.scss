@@ -1,27 +1,32 @@
- .tileWrapper {
-   display: block;
-   margin-bottom: 0.5rem;
-   padding: 0.25rem;
-   text-decoration: none;
-   color: inherit;
-    &:focus {
+.container {
+  display: block;
+  min-height: 350px;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+  color: inherit;
+  text-decoration: none;
+  &:focus {
     outline: 2px solid #0f62fe;
     outline-offset: -4px;
   }
- }
+}
+
+.tileWrapper {
+  min-height: 350px;
+}
 
 .imageWrapper {
-   position: relative;
-   width: 100%;
-   padding-top: 75%;
-   margin-bottom: 0.5rem;
- }
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
+  margin-bottom: 0.5rem;
+}
 
- .imageWrapper > img {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
- }
+.imageWrapper > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
