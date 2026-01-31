@@ -1,15 +1,27 @@
+ .tileWrapper {
+   display: block;
+   margin-bottom: 0.5rem;
+   padding: 0.25rem;
+   text-decoration: none;
+   color: inherit;
+    &:focus {
+    outline: 2px solid #0f62fe;
+    outline-offset: -4px;
+  }
+ }
+
 .imageWrapper {
-    position: relative;
-    width: 100%;
-    padding-top: 75%;
-    margin-bottom: 0.5rem;
+   position: relative;
+   width: 100%;
+   padding-top: 75%;
+   margin-bottom: 0.5rem;
  }
 
  .imageWrapper > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
  }
