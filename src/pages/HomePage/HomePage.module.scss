@@ -1,0 +1,38 @@
+.grid {
+  margin-top: 3rem;
+}
+
+.filtersWrapper {
+  display: flex;
+  margin: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  min-width: 250px;
+}
+
+.searchWrapper {
+  flex-grow: 1;
+  min-width: 250px;
+}
+
+.dropDownWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  align-items: center;
+  vertical-align: middle;
+  min-width: 10rem;
+}
+
+.dropdown {
+  min-width: 10rem;
+}
+
+@media (max-width: 600px) {
+  .dropDownWrapper {
+    width: 100%;
+  }
+  .dropdown {
+    width: 100%;
+  }
+}
