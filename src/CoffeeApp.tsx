@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { BrowserRouter, Route,Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from "./pages/HomePage/HomePage";
 import DetailPage from "./pages/DetailPage/DetailPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import { OrderModal } from './components/OrderModal/OrderModal';
+import Navbar from './components/Navbar/Navbar';
 import type { CoffeeBeanApi } from './types/coffeeBean';
 import type { OrderItem } from './types/orderItem';
 import './CoffeeApp.css';
@@ -29,6 +30,7 @@ function CoffeeApp() {
 
   return (
     <BrowserRouter>
+      <Navbar cartItems={orderItems} onCartClick={() => setIsOrderModalOpen(true)}/>
       <OrderModal
         open={isOrderModalOpen}
         orderItems={orderItems}
