@@ -7,7 +7,7 @@ A React + TypeScript app (work-in-progress) using Carbon components to showcase 
 - Detailed view of selected beans ✅
 - Bean of the Day highlight
 - Order form for purchasing beans ✅
-- Search/filter functionality
+- Search/filter functionality ✅
 
 ## Tech Stack
 - React + TypeScript
