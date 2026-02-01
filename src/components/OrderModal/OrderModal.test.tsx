@@ -44,23 +44,21 @@ describe("OrderModal component test", () => {
   });
 
   it("component renders no items selected", () => {
-    render(<OrderModal open={true} orderItems={[]} onClose={mockOnClose} />);
+    render(<OrderModal open={true} orderItems={[]} onClose={mockOnClose} onRemoveItem={vitest.fn()} />);
 
     expect(screen.getByText("No items selected.")).toBeInTheDocument();
-    expect(screen.getByText("Total:").closest("p")).toHaveTextContent("Total: £0.00");
+    expect(screen.getByTestId("order-total")).toHaveTextContent("Total £0.00");
   });
 
   it("renders order items and calculates total correctly", () => {
     render(
-      <OrderModal open={true} orderItems={mockItems} onClose={mockOnClose} />,
+      <OrderModal open={true} orderItems={mockItems} onClose={mockOnClose} onRemoveItem={vitest.fn()} />,
     );
 
     expect(screen.getByText("Starbucks Coffee")).toBeInTheDocument();
     expect(screen.getByText("Costa Coffee")).toBeInTheDocument();
 
-    const totalEl = screen.getByText(/Total:/i).closest("p");
-
-    expect(totalEl).toBeInTheDocument();
-    expect(totalEl).toHaveTextContent("Total: £17.50");
+    expect(screen.getByTestId("order-total")).toBeInTheDocument();
+    expect(screen.getByTestId("order-total")).toHaveTextContent("Total £17.50");
   });
 });

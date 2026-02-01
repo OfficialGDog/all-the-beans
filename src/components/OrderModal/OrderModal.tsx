@@ -1,49 +1,91 @@
-import { Modal, NumberInput } from "@carbon/react";
+import { Modal, NumberInput, Button } from "@carbon/react";
 import type { OrderItem } from "../../types/orderItem";
+import { CheckmarkOutline } from "@carbon/icons-react";
+import styles from "./OrderModal.module.scss";
 
 type OrderModalProps = {
   open: boolean;
   orderItems: OrderItem[];
   onClose: () => void;
+  onRemoveItem: (id: string) => void;
+  onCheckout?: () => void;
 };
 
 export const OrderModal = ({
   open,
   orderItems,
   onClose,
+  onCheckout,
+  onRemoveItem,
 }: OrderModalProps) => {
+  
+  const totalPrice = orderItems.reduce((acc, item) => 
+    acc + parseFloat(item.Cost.slice(1)) * item.quantity, 0).toFixed(2);
+
   return (
     <Modal
       open={open}
-      size={"md"}
+      size="md"
       passiveModal={true}
       modalHeading="Your Order"
-      primaryButtonText="Checkout"
-      secondaryButtonText="Cancel"
       onRequestClose={onClose}
-      onRequestSubmit={() => {
-        alert("Order placed");
-      }}
     >
-      {orderItems.length === 0 && <p>No items selected.</p>}
+      <div className={styles.scrollContainer}>
+        {orderItems.length === 0 ? (
+          <p>No items selected.</p>
+        ) : (
+          orderItems.map((item) => (
+            <div
+              key={item._id}
+              className={styles.orderWrapper}
+            >
+              <div className={styles.orderItem}>
+                <strong>{item.Name}</strong>
+                <div className={styles.itemCost}>
+                  {item.Cost} each
+                </div>
+                <span
+                  className={styles.removeLink}
+                  onClick={() => onRemoveItem(item._id)}
+                >
+                  Remove
+                </span>
+              </div>
+              <div className={styles.itemQuantity}>
+                <NumberInput
+                  inputMode="numeric"
+                  size="md"
+                  id={`qty-${item._id}`}
+                  label="Quantity"
+                  min={1}
+                  value={item.quantity}
+                />
+              </div>
+            </div>
+          ))
+        )}
+      </div>
 
-      {orderItems.map(item => (
-        <div key={item._id} style={{ marginBottom: 16 }}>
-          <strong>{item.Name}</strong>
-
-          <NumberInput
-            id={`qty-${item._id}`}
-            label="Quantity"
-            min={1}
-            value={item.quantity}
-          />
+      {/* Footer */}
+      <div id="modalFooter" className={styles.modalFooter}>
+        <div className={styles.orderTotal} data-testid="order-total">
+          <span className={styles.orderTotalLabel}>Total</span>{" "}
+          <span className={styles.orderPrice}>£{totalPrice}</span>
         </div>
-      ))}
-
-      <p style={{ marginTop: 16 }}>
-        <strong>Total:</strong> £{orderItems.reduce((acc,orderItem) => 
-          acc + (parseFloat(orderItem.Cost.slice(1)) * orderItem.quantity), 0).toFixed(2)}
-      </p>
+        <div className={styles.checkoutContainer}>
+        <Button
+          size="lg"
+          kind="ghost"
+          onClick={onCheckout}
+          className={styles.checkoutButton}
+        >
+          <CheckmarkOutline
+            className={styles.checkoutIcon}
+          />
+          Checkout
+        </Button>
+        </div>
+      </div>
     </Modal>
   );
 };

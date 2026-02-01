@@ -28,12 +28,18 @@ function CoffeeApp() {
     setIsOrderModalOpen(true);
   }
 
+  const handleCheckout = () => {
+    alert("Order confirmed");
+  };
+
   return (
     <BrowserRouter>
-      <Navbar cartItems={orderItems} onCartClick={() => setIsOrderModalOpen(true)}/>
+      <Navbar cartItems={orderItems} onCartClick={() => setIsOrderModalOpen(true)} />
       <OrderModal
         open={isOrderModalOpen}
         orderItems={orderItems}
+        onCheckout={handleCheckout}
+        onRemoveItem={() => {}}
         onClose={() => setIsOrderModalOpen(false)}
         />
       <Routes>

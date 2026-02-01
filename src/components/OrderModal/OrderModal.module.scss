@@ -1,0 +1,87 @@
+.scrollContainer {
+  max-height: 50vh;
+  overflow: auto;
+  padding-right: 16px;
+  padding-bottom: 80px;
+}
+
+.orderWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 8px;
+  gap: 16px;
+}
+
+.orderItem {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.itemCost {
+  color: #6f6f6f;
+}
+
+.itemQuantity {
+  width: 9rem;
+}
+
+.removeLink {
+  color: #0f62fe;
+  cursor: pointer;
+}
+
+.modalFooter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  border-top: 1px solid #e0e0e0;
+}
+
+.orderTotal {
+  display: flex;
+  flex-direction: column;
+  gap: 4;
+}
+
+.orderTotalLabel {
+  font-size: 12;
+  opacity: 0.8;
+}
+
+.orderPrice {
+  font-size: 20;
+  font-weight: bold;
+}
+
+.checkoutContainer {
+    margin: 2px;
+    border-radius: 12px;
+    background-color: white;
+}
+
+.checkoutButton {
+  background-color: #ffffff;
+  color: #000000 !important;
+  border: 1px solid #ccc;
+  border-radius: inherit;
+  padding: 12px 24px;
+  font-weight: bold;
+  align-items: center;
+}
+
+.checkoutIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: .5rem;
+  vertical-align: middle;
+}
