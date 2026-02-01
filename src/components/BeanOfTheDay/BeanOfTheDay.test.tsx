@@ -1,7 +1,10 @@
-import { describe, it, expect } from "vitest";
+import { render, screen } from "@testing-library/react";
+import BeanOfTheDay from "./BeanOfTheDay";
 
-describe.skip("vitest setup", () => {
-  it("runs a basic test", () => {
-    expect(true).toBe(true);
+describe("BeanOfTheDay component test", () => {
+  it("renders the BOTD component", () => {
+    render(<BeanOfTheDay />);
+
+    expect(screen.getByText("BeanOfTheDay")).toBeInTheDocument();
   });
 });

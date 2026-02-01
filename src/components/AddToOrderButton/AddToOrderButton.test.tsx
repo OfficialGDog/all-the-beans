@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import AddToOrderButton from "./AddToOrderButton";
 
 const mockBean = {
@@ -20,5 +21,16 @@ describe("AddToOrderButton component test", () => {
     const button = screen.getByRole("button", { name: "£39.26" });
 
     expect(button).toBeInTheDocument();
+  });
+
+  it("triggers addToOrder when the button is clicked", () => {
+    const onAddToOrder = vi.fn();
+
+    render(<AddToOrderButton bean={mockBean} onAddToOrder={onAddToOrder} />);
+
+    fireEvent.click(screen.getByRole("button"));
+
+    expect(onAddToOrder).toHaveBeenCalledTimes(1);
+    expect(onAddToOrder).toHaveBeenCalledWith(mockBean);
   });
 });
