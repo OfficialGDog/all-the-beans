@@ -4,7 +4,7 @@ import BeanOfTheDay from "./BeanOfTheDay";
 describe("BeanOfTheDay component test", () => {
   it("renders the BOTD component", () => {
     render(<BeanOfTheDay />);
-
-    expect(screen.getByText("BeanOfTheDay")).toBeInTheDocument();
+    const badge = screen.getByText("Bean of the Day");
+    expect(badge).toBeInTheDocument();
   });
 });

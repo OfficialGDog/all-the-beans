@@ -1,5 +1,11 @@
-export default function BeanOfTheDay() {
+import styles from "./BeanOfTheDay.module.scss";
+
+type BeanOfTheDayProps = {
+  className?: string;
+};
+
+export default function BeanOfTheDay({className}: BeanOfTheDayProps) {
   return (
-    <div>BeanOfTheDay</div>
+    <span className={`${styles.badge} ${styles[className || '']}`}>Bean of the Day</span>
   )
 }

@@ -1,5 +1,6 @@
 import type { BeanDetailProps } from "../../types/coffeeBean";
 import AddToOrderButton from "../AddToOrderButton/AddToOrderButton";
+import BeanOfTheDay from "../BeanOfTheDay/BeanOfTheDay";
 import styles from "./BeanDetail.module.scss";
 
 export default function BeanDetail({ bean, onAddToOrder }: BeanDetailProps) {
@@ -28,6 +29,7 @@ export default function BeanDetail({ bean, onAddToOrder }: BeanDetailProps) {
         />
       </div>
       <div className={styles.info}>
+        {bean.isBOTD && <BeanOfTheDay />}
         <h1 className={styles.name}>{bean.Name}</h1>
         <div className={styles.details}>
           <span className={styles.country}>{bean.Country}</span>
