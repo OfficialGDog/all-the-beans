@@ -20,10 +20,13 @@ function DetailPage({ onAddToOrder }: DetailPageProps) {
   return (
     <main className={styles.container}>
       {bean ? (<BeanDetail bean={bean} onAddToOrder={onAddToOrder}/>) : (
-        <p>This product isn't available anymore</p> )}
-      <Button kind="primary" onClick={() => navigate("/")}>
-        Back to Home
-      </Button>
+        <>
+          <p>This product isn't available anymore</p>
+          <Button kind="primary" onClick={() => navigate("/")}>
+            Back to Home
+          </Button>
+        </>
+      )}
     </main>
   );
 }

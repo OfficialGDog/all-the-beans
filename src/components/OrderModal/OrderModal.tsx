@@ -25,7 +25,7 @@ export const OrderModal = ({
   return (
     <Modal
       open={open}
-      size="md"
+      size="sm"
       passiveModal={true}
       modalHeading="Your Order"
       onRequestClose={onClose}

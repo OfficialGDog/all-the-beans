@@ -5,27 +5,46 @@
   padding: 2rem;
   border: 1px solid #ddd;
   background-color: #fff;
+
+  @media(min-width: 768px) {
+    flex-direction: row;
+    gap: 3rem;
+  }
 }
 
 .imageWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+
+  @media(min-width: 768px) {
+    width: 50%;
+  }
 }
 
 .image {
-  max-width: 100%;
+  width: 100%;
+  max-width: 400px;
   max-height: 300px;
   object-fit: cover;
-  border-radius: 12px;
 }
 
 .info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
   gap: 1rem;
+  width: 100%;
+
+  @media(min-width: 768px) {
+    width: 50%;
+    align-items: flex-start;
+  }
+
+  @media(max-width: 767px) {
+    align-items: center;
+  }
 }
 
 .name {
@@ -34,52 +53,44 @@
   margin: 0;
 }
 
-.country {
-  font-size: 1.2rem;
-  color: #555;
-}
-
-.description {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #333;
-}
-
-.button {
-  align-self: flex-start;
-}
-
 .details {
   display: flex;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.country {
+  font-size: 1.2rem;
+  color: #555;
 }
 
 .roast {
   font-size: 0.9rem;
   font-weight: 500;
   color: #fff;
-  background-color: #c47f00; // warm brown for roast
   padding: 0.2rem 0.6rem;
   border-radius: 8px;
 }
 
-/* Unroasted */
-.green {
-  background-color: #2e6b3f; // dark green
+/* Roast Colors */
+.green { background-color: #2e6b3f; }
+.light { background-color: #7a5a1e; }
+.medium { background-color: #5c3a1a; }
+.dark { background-color: #2b1a12; }
+
+.description {
+  font-size: 1rem;
+  text-align: left;
+  line-height: 1.5;
+  color: #333;
 }
 
-/* Light roast */
-.light {
-  background-color: #7a5a1e; // golden brown, not yellow
-}
+.buttonWrapper {
+  margin-top: 1rem;
+  align-self: flex-start;
 
-/* Medium roast */
-.medium {
-  background-color: #5c3a1a; // rich brown
-}
-
-/* Dark roast */
-.dark {
-  background-color: #2b1a12; // very dark brown
+  @media(max-width: 767px) {
+    align-self: center;
+  }
 }
