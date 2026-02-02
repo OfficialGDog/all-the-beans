@@ -89,3 +89,9 @@
   margin-right: .5rem;
   vertical-align: middle;
 }
+
+.readOnly input {
+  caret-color: transparent;
+  cursor: default;
+  user-select: none;
+}
