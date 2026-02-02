@@ -11,4 +11,8 @@ export default defineConfig({
     testTimeout: 5000,
     reporters: ['verbose']
   },
+  server: {
+    host: true, 
+    allowedHosts: true
+  }
 })
