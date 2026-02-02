@@ -7,10 +7,11 @@ import { OrderModal } from './components/OrderModal/OrderModal';
 import Navbar from './components/Navbar/Navbar';
 import type { CoffeeBeanApi } from './types/coffeeBean';
 import type { OrderItem } from './types/orderItem';
+import useSessionStorage from './hooks/useSessionStorage';
 import './CoffeeApp.css';
 
 function CoffeeApp() {
-  const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
+  const [orderItems, setOrderItems] = useSessionStorage<OrderItem[]>("orderItems", []);
   const [isOrderModalOpen, setIsOrderModalOpen] = useState<boolean>(false);
 
   const addToOrder = (bean: CoffeeBeanApi) => {
