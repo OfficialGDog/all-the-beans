@@ -44,7 +44,7 @@ describe("OrderModal component test", () => {
   });
 
   it("component renders no items selected", () => {
-    render(<OrderModal open={true} orderItems={[]} onClose={mockOnClose} onRemoveItem={vitest.fn()} />);
+    render(<OrderModal open={true} orderItems={[]} onClose={mockOnClose} onAddToOrder={() => vitest.fn()} onRemoveFromOrder={() => vitest.fn()} />);
 
     expect(screen.getByText("No items selected.")).toBeInTheDocument();
     expect(screen.getByTestId("order-total")).toHaveTextContent("Total £0.00");
@@ -52,7 +52,7 @@ describe("OrderModal component test", () => {
 
   it("renders order items and calculates total correctly", () => {
     render(
-      <OrderModal open={true} orderItems={mockItems} onClose={mockOnClose} onRemoveItem={vitest.fn()} />,
+      <OrderModal open={true} orderItems={mockItems} onClose={mockOnClose} onAddToOrder={() => vitest.fn()} onRemoveFromOrder={vitest.fn()} />,
     );
 
     expect(screen.getByText("Starbucks Coffee")).toBeInTheDocument();
