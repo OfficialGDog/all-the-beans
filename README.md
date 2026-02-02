@@ -2,7 +2,7 @@
 
 A React + TypeScript app (work-in-progress) using Carbon components to showcase coffee bean products.  
 
-## Features (in progress)
+## Features
 - Display a list of coffee beans ✅
 - Detailed view of selected beans ✅
 - Bean of the Day highlight ✅
