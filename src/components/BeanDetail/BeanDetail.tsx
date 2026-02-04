@@ -1,3 +1,5 @@
+import { IconButton } from "@carbon/react";
+import { ArrowLeft } from "@carbon/icons-react"; // Carbon icon
 import type { BeanDetailProps } from "../../types/coffeeBean";
 import AddToOrderButton from "../AddToOrderButton/AddToOrderButton";
 import BeanOfTheDay from "../BeanOfTheDay/BeanOfTheDay";
@@ -21,6 +23,12 @@ export default function BeanDetail({ bean, onAddToOrder }: BeanDetailProps) {
 
   return (
     <div className={styles.container}>
+      <div className={styles.headerRow}>
+        <IconButton size="lg" type="button" kind="ghost" label="Back" href="/">
+          <ArrowLeft />
+        </IconButton>
+      </div>
+
       <div className={styles.imageWrapper}>
         <img
           src={`${bean.Image}?w=400&h=300&fit=crop`}
@@ -28,6 +36,7 @@ export default function BeanDetail({ bean, onAddToOrder }: BeanDetailProps) {
           className={styles.image}
         />
       </div>
+
       <div className={styles.info}>
         {bean.isBOTD && <BeanOfTheDay />}
         <h1 className={styles.name}>{bean.Name}</h1>
