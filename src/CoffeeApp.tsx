@@ -29,24 +29,26 @@ function CoffeeApp() {
     setIsOrderModalOpen(true);
   }
 
-  const removeFromOrder = (bean: CoffeeBeanApi, remove: boolean = false) => {
-    setOrderItems(prev => { return prev.map(item =>
+  const decreaseQuantity = (bean: CoffeeBeanApi) => {
+    setOrderItems(prev =>
+      prev
+        .map(item =>
           item._id === bean._id
             ? { ...item, quantity: item.quantity - 1 }
             : item
-          ).filter(item => {
-              if (remove && item._id === bean._id) return false; 
-              if (item.quantity <= 0) return false;
-              return true;            
-            } 
-          )
-        }
-      )
+        )
+        .filter(item => item.quantity > 0)
+    );
   };
 
+  const deleteFromOrder = (bean: CoffeeBeanApi) => {
+    setOrderItems(prev => prev.filter(item => item._id !== bean._id));
+  };
 
   const handleCheckout = () => {
     alert("Order confirmed");
+    setOrderItems([]);
+    setIsOrderModalOpen(false);
   };
 
   return (
@@ -57,7 +59,8 @@ function CoffeeApp() {
         orderItems={orderItems}
         onCheckout={handleCheckout}
         onAddToOrder={addToOrder}
-        onRemoveFromOrder={removeFromOrder}
+        onDecreaseQuantity={decreaseQuantity}
+        onDeleteFromOrder={deleteFromOrder}
         onClose={() => setIsOrderModalOpen(false)}
         />
       <Routes>

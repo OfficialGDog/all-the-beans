@@ -9,7 +9,8 @@ type OrderModalProps = {
   orderItems: OrderItem[];
   onClose: () => void;
   onAddToOrder: (bean: CoffeeBeanApi) => void;
-  onRemoveFromOrder: (bean: CoffeeBeanApi, remove?: boolean) => void;
+  onDecreaseQuantity: (bean: CoffeeBeanApi) => void;
+  onDeleteFromOrder: (bean: CoffeeBeanApi) => void;
   onCheckout?: () => void;
 };
 
@@ -18,7 +19,8 @@ export const OrderModal = ({
   orderItems,
   onClose,
   onAddToOrder,
-  onRemoveFromOrder,
+  onDecreaseQuantity,
+  onDeleteFromOrder,
   onCheckout
 }: OrderModalProps) => {
   
@@ -29,7 +31,7 @@ export const OrderModal = ({
     if (direction === "up") {
       onAddToOrder(item);
     } else if (direction === "down" && item.quantity > 1) {
-      onRemoveFromOrder(item);
+      onDecreaseQuantity(item);
     }
   };
 
@@ -57,7 +59,7 @@ export const OrderModal = ({
                 </div>
                 <span
                   className={styles.removeLink}
-                  onClick={() => onRemoveFromOrder(item, true)}
+                  onClick={() => onDeleteFromOrder(item)}
                 >
                   Remove
                 </span>
